@@ -107,11 +107,31 @@ This can be converted to a dict directecly
 
 
 
+Additionally, union and intersection operators can be used on counters
+
+```python
+t = Counter([1,2,3,3,4])
+s = Counter([1, 3, 3, 4])
+s[1] -= 10
+print(s.items())
+print(s)
+print(t&s)
+# dict_items([(1, -9), (3, 2), (4, 1)])
+# Counter({3: 2, 4: 1, 1: -9})
+# Counter({3: 2, 4: 1})
+```
+
+**Note:** Each operation can accept inputs with signed counts, but the output will exclude results with counts of zero or less.
+
+See: https://docs.python.org/3/library/collections.html#collections.Counter.update
+
+[Python Sets](#Python Sets) also share similar operators
+
 ### Iteratools (Combination & Permutation)
 
 https://realpython.com/python-itertools
 
-
+Also see Python Sets
 
 ##### Permutation
 
@@ -354,6 +374,8 @@ for item in set1:
     print(item)
 
 ```
+
+Note, These operators are also found with the [Counter](#counter) object 
 
 #### Python Tuples
 
